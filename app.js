@@ -2,6 +2,7 @@ const express = require ('express')
 const app = express()
 const cors = require ('cors')
 const mongoose = require('mongoose')
+const users = require('./models/users.model')
 
 const PORT = 5000
 
@@ -24,7 +25,8 @@ app.get('/index', (req, res) => {
 
 app.post('/novoUsuario', (req, res) => {
     const dados = req.body;
-    console.log(dados)
+    //console.log(dados)
+    users.create(dados)
 })
 
 app.listen(5000, () => {
